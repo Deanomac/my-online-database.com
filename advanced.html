@@ -1,0 +1,376 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Details & Troubleshooting | IndexedDB Guide</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Comprehensive technical details and troubleshooting guide for IndexedDB. Learn advanced usage patterns, resolve common issues, and follow best practices to optimize your database operations.">
+    <meta name="keywords" content="Technical Details, Troubleshooting, IndexedDB, Database Issues, Database Optimization, Advanced Usage Patterns, Data Migration, Performance Issues, Database Best Practices, Error Handling">
+    <meta name="author" content="Your Company Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Technical Details & Troubleshooting | IndexedDB Guide">
+    <meta property="og:description" content="Access comprehensive technical details and troubleshooting tips for IndexedDB. Discover advanced usage patterns, resolve common database issues, and implement best practices for optimal performance.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://my-online-database.com/technical-details">
+    <meta property="og:image" content="https://my-online-database.com/images/technical-troubleshooting.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Technical Details & Troubleshooting | IndexedDB Guide">
+    <meta name="twitter:description" content="Access comprehensive technical details and troubleshooting tips for IndexedDB. Discover advanced usage patterns, resolve common database issues, and implement best practices for optimal performance.">
+    <meta name="twitter:image" content="https://my-online-database.com/images/technical-troubleshooting-twitter.png">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Technical Details & Troubleshooting",
+        "description": "Comprehensive technical details and troubleshooting guide for IndexedDB, including advanced usage patterns, common issues resolution, and best practices for optimal database performance.",
+        "author": {
+            "@type": "Organization",
+            "name": "Your Company Name",
+            "url": "https://my-online-database.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Your Company Name",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://my-online-database.com/images/logo.png"
+            }
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-11-05",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://my-online-database.com/technical-details"
+        }
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #4a6da7;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f3f4f6;
+            --border-color: #e5e7eb;
+            --code-bg: #1a1a1a;
+            --code-text: #00ff00;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: var(--bg-primary);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .troubleshooting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .issue-card {
+            background: var(--bg-primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .solution-steps {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+
+        .solution-steps li {
+            margin-bottom: 0.5rem;
+        }
+
+        .terminal {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .pattern-example {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        footer.app-footer {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 2rem 0;
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer.app-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer.app-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="section" id="advanced-usage-patterns">
+            <h1>Technical Details & Troubleshooting</h1>
+            <p>Access comprehensive technical details and troubleshooting tips for IndexedDB. Discover advanced usage patterns, resolve common database issues, and implement best practices for optimal performance.</p>
+        </section>
+
+        <section class="section" id="advanced-usage-patterns">
+            <h2>Advanced Usage Patterns</h2>
+            
+            <div class="pattern-example">
+                <h3>Batch Operations</h3>
+                <div class="terminal">
+                    <button class="copy-button">Copy</button>
+                    async function batchInsert(records) {
+                        const tx = db.transaction('records', 'readwrite');
+                        const store = tx.objectStore('records');
+                        
+                        for (const record of records) {
+                            await store.add(record);
+                        }
+                        
+                        await tx.complete;
+                    }
+                </div>
+            </div>
+
+            <div class="pattern-example">
+                <h3>Complex Queries</h3>
+                <div class="terminal">
+                    <button class="copy-button">Copy</button>
+                    async function queryRecords(tableId, filters) {
+                        const tx = db.transaction('records', 'readonly');
+                        const store = tx.objectStore('records');
+                        const index = store.index('tableId');
+                        
+                        const records = await index.getAll(tableId);
+                        return records.filter(record => {
+                            return Object.entries(filters).every(([key, value]) => 
+                                record.data[key] === value
+                            );
+                        });
+                    }
+                </div>
+            </div>
+
+            <div class="pattern-example">
+                <h3>Data Migration</h3>
+                <div class="terminal">
+                    <button class="copy-button">Copy</button>
+                    async function migrateData(oldVersion, newVersion) {
+                        const tx = db.transaction(['tables', 'columns', 'records'], 'readwrite');
+                        
+                        if (oldVersion < 2) {
+                            const store = tx.objectStore('records');
+                            const records = await store.getAll();
+                            
+                            for (const record of records) {
+                                record.modified = new Date();
+                                await store.put(record);
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="troubleshooting-guide">
+            <h2>Troubleshooting Guide</h2>
+            
+            <div class="troubleshooting-grid">
+                <div class="issue-card">
+                    <h3>Storage Quota Exceeded</h3>
+                    <p>Occurs when browser storage limits are reached.</p>
+                    
+                    <div class="solution-steps">
+                        <h4>Solution:</h4>
+                        <ol>
+                            <li>Check current usage with Storage API</li>
+                            <li>Clean up old or unused data</li>
+                            <li>Request additional quota if available</li>
+                            <li>Export data to a file if needed</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="issue-card">
+                    <h3>Version Mismatch</h3>
+                    <p>Occurs when database structure changes cause conflicts.</p>
+                    
+                    <div class="solution-steps">
+                        <h4>Solution:</h4>
+                        <ol>
+                            <li>Check the current database version</li>
+                            <li>Run migration scripts to update the schema</li>
+                            <li>Backup data before performing migrations</li>
+                            <li>Verify data integrity after migration</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="issue-card">
+                    <h3>Transaction Failures</h3>
+                    <p>Occurs when database operations fail to complete successfully.</p>
+                    
+                    <div class="solution-steps">
+                        <h4>Solution:</h4>
+                        <ol>
+                            <li>Check the error console for specific error messages</li>
+                            <li>Verify the scope of the transaction</li>
+                            <li>Ensure proper error handling in your code</li>
+                            <li>Implement retry logic if necessary</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="issue-card">
+                    <h3>Performance Issues</h3>
+                    <p>Occurs when database operations become slow or unresponsive.</p>
+                    
+                    <div class="solution-steps">
+                        <h4>Solution:</h4>
+                        <ol>
+                            <li>Use appropriate indexes to speed up queries</li>
+                            <li>Batch operations when possible to reduce overhead</li>
+                            <li>Optimize query patterns for efficiency</li>
+                            <li>Monitor and limit the size of records</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="best-practices">
+            <h2>Best Practices</h2>
+            
+            <div class="pattern-example">
+                <h3>Data Validation</h3>
+                <div class="terminal">
+                    <button class="copy-button">Copy</button>
+                    function validateRecord(record, columns) {
+                        for (const column of columns) {
+                            const value = record.data[column.id];
+                            
+                            switch (column.type) {
+                                case 'number':
+                                    if (isNaN(value)) return false;
+                                    break;
+                                case 'date':
+                                    if (!isValidDate(value)) return false;
+                                    break;
+                                // Add more validations as needed
+                            }
+                        }
+                        return true;
+                    }
+                </div>
+            </div>
+
+            <div class="pattern-example">
+                <h3>Error Handling</h3>
+                <div class="terminal">
+                    <button class="copy-button">Copy</button>
+                    async function safeOperation(operation) {
+                        try {
+                            await operation();
+                        } catch (error) {
+                            if (error.name === 'QuotaExceededError') {
+                                // Handle storage quota error
+                            } else if (error.name === 'VersionError') {
+                                // Handle version mismatch
+                            } else {
+                                // Handle other errors
+                            }
+                            throw error;
+                        }
+                    }
+                </div>
+            </div>
+        </section>
+        
+        <footer class="app-footer" role="contentinfo">
+            <a href="https://my-online-database.com" aria-label="Home">Home</a>
+          <a href="/how-2-use.html" aria-label="Instructions">Hints</a>
+            <a href="/about.html" aria-label="About Us">About Us</a>
+            <a href="/documentation.html" aria-label="Documentation">Documentation</a>
+            <a href="/advanced.html" aria-label="Advanced Topics">Advanced Topics</a>
+            <a href="/schema-explorer.html" aria-label="Schema Explorer">Schema Explorer</a>
+        </footer>
+    </div>
+
+    <script>
+        // Add copy functionality to terminal code blocks
+        document.querySelectorAll('.copy-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const code = button.parentElement.textContent.trim();
+                navigator.clipboard.writeText(code)
+                    .then(() => {
+                        button.textContent = 'Copied!';
+                        setTimeout(() => button.textContent = 'Copy', 2000);
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy: ', err);
+                        button.textContent = 'Error';
+                        setTimeout(() => button.textContent = 'Copy', 2000);
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+/* variables.css */
+:root {
+    /* Colors */
+     --primary-color-rgba: 74, 109, 167, 0.5;
+    --secondary-color: #64748b;
+    --border-color: #d1d5db;
+    --header-bg: #e2e8f0;
+    --row-hover: #f8fafc;
+    --toolbar-bg: #f1f5f9;
+    --selected-bg: #e2e8f0;
+    --danger-color: #ef4444;
+    --success-color: #22c55e;
+    --warning-color: #f59e0b;
+    --app-header-bg: #e8e8e8;
+
+    /* Text and Background Colors */
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+    --text-muted: #6b7280;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f3f4f6;
+    --bg-tertiary: #f0f2f5;
+    --input-bg: #ffffff;
+    --input-border: #d1d5db;
+    --input-text: #1f2937;
+    --input-placeholder: #9ca3af;
+    --card-bg: #ffffff;
+    --modal-bg: #ffffff;
+    --tooltip-bg: #1f2937;
+    --tooltip-text: #ffffff;
+
+    /* Z-index Layers */
+    --z-index-modal-backdrop: 900;
+    --z-index-modal: 1000;
+    --z-index-context-menu: 1100;
+    --z-index-spinner: 1200;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --spacing-xl: 20px;
+    --spacing-xxl: 24px;
+
+    /* Borders */
+    --border-radius-sm: 3px;
+    --border-radius-md: 4px;
+    --border-radius-lg: 8px;
+    --border-width: 1px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.4s ease;
+}

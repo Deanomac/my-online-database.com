@@ -1,0 +1,122 @@
+.symphytum-close-btn {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.symphytum-close-btn-circle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(145deg, #ff3333, #ff0000);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.3),      /* Outer shadow */
+        inset 0 -3px 5px rgba(0, 0, 0, 0.4),/* Inner shadow for depth */
+        0 2px 3px rgba(255, 200, 200, 0.5); /* Soft glow */
+}
+
+.symphytum-close-btn-line {
+    background-color: #ffffff;
+    display: block;
+    height: 4px;
+    border-radius: 2px;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    width: 60%;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.symphytum-close-btn-line.left {
+    transform: rotate(45deg) translateZ(2px);
+}
+
+.symphytum-close-btn-line.right {
+    transform: rotate(-45deg) translateZ(2px);
+}
+
+.symphytum-close-btn:hover .symphytum-close-btn-circle {
+    transform: translateZ(15px);
+    background: linear-gradient(145deg, #ff5555, #ff3333);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.4),       /* Deeper outer shadow */
+        inset 0 -5px 8px rgba(0, 0, 0, 0.6), /* Enhanced inner shadow */
+        0 4px 6px rgba(255, 200, 200, 0.7);  /* Glow effect */
+}
+
+.symphytum-close-btn:hover .symphytum-close-btn-line {
+    background-color: #ffcccc;
+}
+
+.symphytum-close-btn:hover .symphytum-close-btn-line.left {
+    transform: rotate(45deg) translateZ(10px);
+}
+
+.symphytum-close-btn:hover .symphytum-close-btn-line.right {
+    transform: rotate(-45deg) translateZ(10px);
+}
+
+.symphytum-close-btn:active .symphytum-close-btn-circle {
+    transform: translateZ(-5px) scale(0.95);
+    background: linear-gradient(145deg, #cc0000, #990000);
+    box-shadow: 
+        0 2px 5px rgba(0, 0, 0, 0.4),      /* Subdued shadow */
+        inset 0 -3px 4px rgba(0, 0, 0, 0.5); /* Stronger inner shadow */
+}
+
+.symphytum-close-btn:active .symphytum-close-btn-line.left {
+    transform: rotate(45deg) translateZ(-2px);
+}
+
+.symphytum-close-btn:active .symphytum-close-btn-line.right {
+    transform: rotate(-45deg) translateZ(-2px);
+}
+
+.symphytum-close-btn:focus-visible {
+    outline: 2px solid #ff3333;
+    outline-offset: 2px;
+}
+.symphytum-save-btn {
+    width: 100px; /* Adjust width as needed */
+    height: 40px;
+    background: linear-gradient(145deg, #4CAF50, #45A049); /* Green gradient */
+    color: #ffffff !important;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    position: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.symphytum-save-btn:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(145deg, #56d85a, #4CAF50); /* Lighter green on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.symphytum-save-btn:active {
+    transform: translateY(2px);
+    background: linear-gradient(145deg, #3e8e41, #45A049); /* Darker shade on active press */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.symphytum-save-btn:focus {
+    outline: 2px solid #4CAF50;
+    outline-offset: 2px;
+}

@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="google-site-verification" content="66SgnT_CbZEoPde_6oaBG0WvjZd1y50wFUcc0mjgRRA" />
+   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Online Database - Powerful, Flexible, and User-Friendly Database Management</title>
+  <meta name="description" content="My Online Database is a powerful, flexible, and user-friendly database management system with rich media support and customizable themes. Create and organize your data easily without the need for logins, installations, or cloud accounts.">
+  <meta name="keywords" content="online database, database management, user-friendly, flexible, customizable, themes, media support, no login, no installation, local storage">
+  <meta name="author" content="My Online Database">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="My Online Database - Powerful, Flexible, and User-Friendly Database Management">
+  <meta property="og:description" content="My Online Database is a powerful, flexible, and user-friendly database management system with rich media support and customizable themes. Create and organize your data easily without the need for logins, installations, or cloud accounts.">
+  <meta property="og:image" content="https://i.imgur.com/41ykvVf.png">
+  <meta property="og:url" content="https://my-online-database.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Online Database - Powerful, Flexible, and User-Friendly Database Management">
+  <meta name="twitter:description" content="My Online Database is a powerful, flexible, and user-friendly database management system with rich media support and customizable themes. Create and organize your data easily without the need for logins, installations, or cloud accounts.">
+  <meta name="twitter:image" content="https://i.imgur.com/41ykvVf.png">
+  <link rel="canonical" href="https://my-online-database.com">
+  <link rel="icon" href="https://i.imgur.com/41ykvVf.png" type="image/png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/closeButton.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Honk&family=Nabla&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+    <!-- Core Module Imports -->
+    <script type="module" src="/js/modules/fileHandler.js"></script>
+    <script type="module" src="/js/modules/tableRenderManager.js"></script>
+    <script type="module" src="/js/modules/tableManager.js"></script>
+    <script type="module" src="/js/modules/settingsManager.js"></script>
+    <script type="module" src="/js/modules/ui.js"></script>
+    <script type="module" src="/js/modules/importManager.js"></script>
+    <script type="module" src="/js/modules/app.js"></script>
+
+    <!-- Feature Module Imports -->
+    <script type="module" src="/js/modules/tableInteractions.js"></script>
+    <script type="module" src="/js/modules/contextMenu.js"></script>
+    <script type="module" src="/js/modules/toolbar.js"></script>
+    <script type="module" src="/js/modules/refresh.js"></script>
+    <script type="module" src="/js/modules/videoSupport.js"></script>
+    <script type="module" src="/js/modules/addTiktokSupport.js"></script>
+    <script type="module" src="/js/modules/youtubeSupport.js"></script>
+    <script type="module" src="/js/modules/formColorPickers.js"></script>
+  <script type="module" src="/js/modules/notifications.js"></script>
+  <script type="module" src="./js/modules/exportManager.js"></script>
+<!-- In your HTML head -->
+<link rel="stylesheet" href="https://unpkg.com/@simonwep/pickr/dist/themes/classic.min.css" />
+
+<!-- Before your closing body tag -->
+<script src="https://unpkg.com/@simonwep/pickr/dist/pickr.min.js"></script>
+
+    <!-- External Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+<script>
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.worker.min.js';
+</script>
+
+    <!-- Application Initialization -->
+    <script type="module">
+        import App from '/js/modules/app.js';
+        import { TableManager } from '/js/modules/tableManager.js';
+        import { SettingsManager } from '/js/modules/settingsManager.js';
+    import { Notifications } from '/js/modules/notifications.js';
+
+        window.addEventListener('load', async () => {
+            try {
+       
+                window.TableManager = TableManager;
+                window.SettingsManager = SettingsManager;
+Notifications.init();
+              SettingsManager.init();           await App.initialize();
+            console.log('Application initialized successfully');
+        } catch (error) {
+            console.error('Failed to initialize application:', error);
+        }
+    });
+
+    </script>
+    <style>
+      .sixtyfour-convergence-<uniquifier> {
+  font-family: "Sixtyfour Convergence", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "BLED" 0, "SCAN" 0, "XELA" 0, "YELA" 0;
+}
+      .honk-<uniquifier> {
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+}
+
+.nabla-<uniquifier> {
+  font-family: "Nabla", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "EDPT" 100,
+    "EHLT" 12;
+}
+      
+      #myUniqueButton {
+  width: 105px;
+  height: 105px;
+  background-color: transparent; /* Ensure background is transparent */
+  border: none; /* No border */
+  padding: 0; /* No padding */
+}
+      /* Container */
+      .custom-dropdown {
+        position: relative;
+        width: 250px;
+        user-select: none;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Selected item */
+      .custom-dropdown .selected {
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+        cursor: pointer;
+        position: relative;
+      }
+
+      /* Arrow indicator */
+      .custom-dropdown .selected::after {
+        content: "";
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 5px solid transparent;
+        border-top-color: #999;
+        pointer-events: none;
+      }
+
+      /* Options container */
+      .custom-dropdown .options {
+        display: none;
+        position: absolute;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-top: none;
+        border-radius: 0 0 4px 4px;
+        background-color: #fff;
+        max-height: 200px;
+        overflow-y: auto;
+        z-index: 1000;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Show options when dropdown is open */
+      .custom-dropdown.open .options {
+        display: block;
+      }
+
+      /* Each option */
+      .custom-dropdown .option {
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      /* Hover effect on options */
+      .custom-dropdown .option:hover {
+        background-color: #f1f1f1;
+      }
+
+      /* Active option */
+      .custom-dropdown .option.active {
+        background-color: #e9e9e9;
+      }
+
+      /* Optional: Customize scrollbar for options */
+      .custom-dropdown .options::-webkit-scrollbar {
+        width: 15px;
+      }
+
+      .custom-dropdown .options::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 3px;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--modal-bg);
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow-xl);
+        width: 800px;
+        max-width: 200vw;
+        z-index: var(--z-index-modal);
+      }
+
+      .modal-header {
+        padding: var(--spacing-lg);
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .modal-body {
+        padding: var(--spacing-lg);
+        max-height: 70vh;
+        overflow-y: auto;
+      }
+
+      .settings-section {
+        margin-bottom: var(--spacing-xl);
+        padding: var(--spacing-lg);
+        background: var(--bg-secondary);
+        border-radius: var(--border-radius-md);
+      }
+
+      .toggle-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 120px;
+        height: 34px;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: green;
+        transition: 0.4s;
+        border-radius: 34px;
+      }
+
+      .toggle-slider:before {
+        position: absolute;
+        content: "OFF";
+        height: 26px;
+        width: 55px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      input:checked + .toggle-slider {
+        background-color: red;
+      }
+
+      input:checked + .toggle-slider:before {
+        transform: translateX(55px);
+        content: "ON";
+        color: black;
+      }
+
+      .danger-zone {
+        margin-top: var(--spacing-xl);
+        padding: var(--spacing-lg);
+        background: rgba(255, 255, 255, 0.1);
+
+        border-radius: var(--border-radius-md);
+      }
+
+
+      /* Export submenu styles */
+      .export-submenu {
+        display: none;
+        position: absolute;
+        left: 100%;
+        top: 0;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-md);
+        box-shadow: var(--shadow-lg);
+        padding: 4px;
+        min-width: 150px;
+      }
+
+      /* Show export submenu on hover */
+      .export-trigger:hover .export-submenu {
+        display: block;
+      }
+
+      .export-trigger:hover + .export-submenu,
+      .export-submenu:hover {
+        display: block;
+      }
+
+
+      .export-theme-toggle {
+        padding: 8px 12px;
+        border-top: 1px solid var(--border-color);
+        margin-top: 4px;
+        font-size: 12px;
+      }
+
+      .export-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+        padding: 10px;
+      }
+
+      .export-options .button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 15px;
+      }
+
+      .export-options .button i {
+        font-size: 24px;
+      }
+
+      .checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 15px;
+        padding: 0 10px;
+      }
+      .font-controls {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+      }
+
+      .toolbar-item {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+      }
+
+      #db4sql-fontSizeInput {
+        width: 60px;
+        padding: 4px;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-sm);
+      }
+      
+ #myUniqueButtonImage, .filing-cabinet {
+    transition: opacity 0.5s ease;
+  }
+  
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .filing-cabinet {
+    /* Ensure the filing cabinet occupies the same space as the image */
+    width: 105px;
+    height: 105px;
+  }
+      
+      /* Filing cabinet styles */
+.theme-rgb-filing-cabinet .cabinet-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 105px;
+    height: 105px;
+    background-color: #000000;
+}
+
+.theme-rgb-filing-cabinet .cabinet {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #111;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    animation: rgb-border 3s linear infinite;
+}
+
+.theme-rgb-filing-cabinet .cabinet::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff0000);
+    background-size: 400% 100%; /* Increased for smoother gradient */
+    animation: rgb-border-slide 3s linear infinite; /* Slowed down for better visibility */
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.theme-rgb-filing-cabinet .drawer {
+    width: 80px;
+    height: 40px;
+    background-color: #222;
+    border-radius: 6px;
+    position: absolute;
+    top: 30px; /* Adjusted for new cabinet height */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease;
+}
+
+.theme-rgb-filing-cabinet .drawer::before {
+    content: '';
+    width: 40px;
+    height: 5px;
+    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff0000);
+    background-size: 300% 100%; /* Increased for smoother gradient */
+    animation: rgb-slide 3s linear infinite; /* Slowed down for better visibility */
+    border-radius: 3px;
+}
+
+.theme-rgb-filing-cabinet .cabinet:hover .drawer {
+    transform: translate(-50%, 50px); /* Adjusted for new cabinet height */
+}
+
+@keyframes rgb-border-slide {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 300% 0%; }
+}
+
+@keyframes rgb-slide {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 300% 0%; }
+}
+
+@keyframes rgb-border {
+    0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
+    50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
+}
+      .hidden {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.filing-cabinet {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- Main Application Container -->
+    <div id="app-container">
+      <!-- App Header -->
+     <div class="app-header">
+  <h1>my-online-database.com</h1>
+<button id="myUniqueButton" style="background-color: transparent; border: none; padding: 0">
+  <img id="myUniqueButtonImage" src="https://i.imgur.com/41ykvVf.png" alt="Database icon" width="105" height="105" />
+
+  </button>
+  <div class="clouds">
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+  </div>
+</div>
+      
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <!-- Main Toolbar Buttons -->
+        <div class="toolbar-section">
+          
+
+    
+          
+             <lable><b>Collections:</b></lable>
+         
+            
+            <select id="tableSelect" class="select">
+            <!-- Options will be populated dynamically -->
+          </select>
+         
+          <button id="tableViewBtn" class="button">Table View</button>
+          <button id="formViewBtn" class="button">Form View</button>
+          <button id="addTableBtn" class="button">New Table</button>
+          <button id="addColumnBtn" class="button">Add Column</button>
+          <button id="addRowBtn" class="button">Add Row</button>
+          <button id="Columns" class="button">
+            <span>Columns</span>
+            <i class="fas fa-columns"></i>
+          </button>
+          <button id="settingsBtn" class="button">Settings</button>
+          <button id="refreshBtn" class="button" title="Refresh Table">
+            <i class="fas fa-sync-alt"></i> Refresh
+          </button>
+        </div>
+
+        <div class="toolbar-section font-controls">
+          <button
+            id="db4sql-boldBtn"
+            class="db4sql-toolbar-btn"
+            title="Bold"
+            type="button"
+          >
+            <strong>B</strong>
+          </button>
+          <button
+            id="db4sql-italicBtn"
+            class="db4sql-toolbar-btn"
+            title="Italic"
+          >
+            <i>I</i>
+          </button>
+          <button
+            id="db4sql-underlineBtn"
+            class="db4sql-toolbar-btn"
+            title="Underline"
+          >
+            <u>U</u>
+          </button>
+             <!--  <button id="db4sql-colorPickerBtn" class="db4sql-toolbar-btn"><i class="fas fa-fill-drip"></i></button> -->
+          <button
+            id="db4sql-alignLeftBtn"
+            class="db4sql-toolbar-btn"
+            title="Align Left"
+          >
+            <i class="fas fa-align-left"></i>
+          </button>
+          <button
+            id="db4sql-alignCenterBtn"
+            class="db4sql-toolbar-btn"
+            title="Align Center"
+          >
+            <i class="fas fa-align-center"></i>
+          </button>
+          <button
+            id="db4sql-alignRightBtn"
+            class="db4sql-toolbar-btn"
+            title="Align Right"
+          >
+            <i class="fas fa-align-right"></i>
+          </button>
+        </div>
+        <div class="search-container">
+          <div class="search-wrapper">
+            <input
+              type="text"
+              id="searchInput"
+              class="search-input"
+              placeholder="Search..."
+            />
+            <i class="fa fa-search search-icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Color Picker Modal -->
+      <div id="db4sql-colorPickerModal" class="db4sql-modal">
+        <div class="db4sql-modal-content">
+          <div class="db4sql-modal-header">
+            <h2>Select Background Color</h2>
+            <span id="db4sql-closeColorPicker" class="db4sql-close"
+              >&times;</span
+            >
+          </div>
+          <div class="db4sql-modal-body">
+            <div class="db4sql-basic-colors"></div>
+            <div class="db4sql-color-spectrum">
+              <input type="color" id="db4sql-colorSpectrumInput" />
+            </div>
+            <div class="db4sql-color-inputs">
+              <label
+                >R: <input type="number" id="db4sql-redInput" min="0" max="255"
+              /></label>
+              <label
+                >G:
+                <input type="number" id="db4sql-greenInput" min="0" max="255"
+              /></label>
+              <label
+                >B:
+                <input type="number" id="db4sql-blueInput" min="0" max="255"
+              /></label>
+              <label
+                >Hex: <input type="text" id="db4sql-hexInput" maxlength="7"
+              /></label>
+              <label for="db4sql-alphaInput">Opacity:</label>
+              <input
+                type="range"
+                id="db4sql-alphaInput"
+                min="0"
+                max="1"
+                step="0.01"
+                value="1"
+              />
+            </div>
+          </div>
+          <div class="db4sql-modal-footer">
+            <button id="db4sql-colorPickerOkBtn" class="db4sql-button">
+              OK
+            </button>
+            <button id="db4sql-colorPickerCancelBtn" class="db4sql-button">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="settingsModal" class="modal">
+        <div class="modal-content">
+    <div class="modal-header">
+  <h3>Settings</h3>
+  <button class="symphytum-close-btn" id="closeSettingsModal">
+    <span class="symphytum-close-btn-circle"></span>
+    <span class="symphytum-close-btn-line left"></span>
+    <span class="symphytum-close-btn-line right"></span>
+  </button>
+</div>
+
+          <div class="modal-body">
+            <div class="settings-section">
+              <div class="toggle-container">
+                <span>Edit and Delete Options</span>
+                <label class="toggle-switch">
+                  <input
+                    type="checkbox"
+                    id="toggleDeleteButtons"
+                    style="display: none"
+                  />
+
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+            <br />
+            <div class="settings-section">
+              <h3>Theme</h3>
+              <select id="themeSelect" class="theme-select">
+                <option value="light">Normal</option>
+                <option value="dark">Dark</option>
+                <option value="blue">Blue</option>
+                <option value="hellokitty">Hello Kitty</option>
+                <option value="hacker">Hacker</option>
+                <option value="rgb">RGB</option>
+                <option value="excel">Excel</option>
+                <option value="thanksgiving">Thanksgiving</option>
+                <option value="christmas">Christmas</option>
+                <option value="easter">Easter</option>
+                <option value="paintblob">Paintblob</option>
+                <option value="dogecoin">Doge</option>           
+              <option value="applepc">Apple</option>
+              <option value="windows98">Windows98</option>
+                <!--     <option value="dos">Dos</option> -->
+              
+              </select><br /><br />
+              <button id="resetTheme" class="button">
+                Reset to Default Theme
+              </button>
+            </div>
+
+            <div class="danger-zone">
+              <button
+                id="deleteTableBtn"
+                style="
+                  background: linear-gradient(45deg, red, #ff6b6b);
+                  background-size: 200% 200%;
+                  color: white;
+                  border: none;
+                  padding: 10px 20px;
+                  font-size: 16px;
+                  cursor: pointer;
+                  border-radius: 5px;
+                "
+              >
+                Delete Table
+              </button>
+
+              <script></script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Main Views -->
+      <div id="tableView" class="table-container" role="table">
+        <table id="dataTable">
+          <thead>
+            <tr>
+              <th style="width: 25px">#</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <!-- Add Column Modal -->
+      <div id="addColumnModal" class="modal">
+        <div class="modal-content">
+         <div class="modal-header">
+  <h3>Add New Column</h3>
+  <button class="symphytum-close-btn" id="closeColumnModal">
+    <span class="symphytum-close-btn-circle"></span>
+    <span class="symphytum-close-btn-line left"></span>
+    <span class="symphytum-close-btn-line right"></span>
+  </button>
+</div>
+          <div class="modal-body">
+            <form id="columnForm">
+              <div class="form-group">
+                <label for="columnName">Column Name:</label>
+                <input type="text" id="columnName" required />
+              </div>
+              <div class="form-group">
+                <label for="columnType">Column Type:</label>
+                <select id="columnType">
+                  <option value="text">Text</option>
+                  <option value="number">Number</option>
+                  <option value="date">Date</option>
+                  <option value="email">Email</option>
+                  <option value="url">URL</option>
+                  <option value="textarea">Long Text</option>
+                   <!-- <option value="backgroundColor">Background Color</option> -->
+
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button id="cancelColumnBtn" class="button">Cancel</button>
+            <button id="saveColumnBtn" class="button button-primary">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column Visibility Modal -->
+      <div id="columnVisibilityModal" class="modal">
+        <div class="modal-content">
+<div class="modal-header">
+  <h3>Columns Show/Hide/Delete/Change Type</h3>
+  <button class="symphytum-close-btn" id="closeColumnVisibilityModal">
+    <span class="symphytum-close-btn-circle"></span>
+    <span class="symphytum-close-btn-line left"></span>
+    <span class="symphytum-close-btn-line right"></span>
+  </button>
+</div>
+          <div class="modal-body">
+           <!--   <button id="showAllColumns" class="button show-all-button">   </button> -->
+             <b> <h3>
+               Column List
+               </h3></b>
+         
+            <div id="columnList" class="column-list">
+              <!-- Column checkboxes will be inserted here -->
+            </div>
+          </div>
+    
+        </div>
+      </div>
+      <!-- Form View -->
+      <div id="formView" class="form-view" role="form">
+        <div class="form-view-toolbar">
+          <div class="form-tools">
+            <div class="grid-controls">
+              <label for="snapToGrid">Snap to Grid:</label>
+              <input type="checkbox" id="snapToGrid" />
+              <input
+                type="number"
+                id="gridSize"
+                value="20"
+                min="5"
+                max="50"
+                step="5"
+              />
+              <span>px</span>
+            </div>
+            <button id="resetLayout" class="button">Reset Layout</button>
+          </div>
+        </div>
+        <form id="recordForm"></form>
+      </div>
+
+      <!-- Create Table Modal -->
+      <div id="createTableModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+      
+  <h3>Create New Table</h3>
+  <button class="symphytum-close-btn" id="closeCreateTableModal">
+    <span class="symphytum-close-btn-circle"></span>
+    <span class="symphytum-close-btn-line left"></span>
+    <span class="symphytum-close-btn-line right"></span>
+  </button>
+</div>
+
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="newTableName">Table Name</label>
+              <input
+                type="text"
+                id="newTableName"
+                placeholder="Enter table name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <div class="toggle-options">
+                <div class="toggle-option-label">Table Type</div>
+                <div class="toggle-switch-container">
+                  <input
+                    type="radio"
+                    id="createEmpty"
+                    name="tableOption"
+                    value="empty"
+                    checked
+                  />
+                  <input
+                    type="radio"
+                    id="createImport"
+                    name="tableOption"
+                    value="import"
+                  />
+                  <div class="switch-labels">
+                    <span>Empty</span>
+                    <span>Import</span>
+                  </div>
+                  <div class="slider-1"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="button" id="cancelCreateTableBtn">Cancel</button>
+            <button class="button primary" id="createTableBtn">Next</button>
+          </div>
+        </div>
+      </div>
+      <!-- Update your import modal HTML -->
+      <!-- Replace your existing import modal with this corrected version -->
+   <div id="importModal" class="modal">
+  <div class="modal-content">
+<div class="modal-header">
+  <h3>Import Data</h3>
+  <button class="symphytum-close-btn" id="closeImportModal">
+    <span class="symphytum-close-btn-circle"></span>
+    <span class="symphytum-close-btn-line left"></span>
+    <span class="symphytum-close-btn-line right"></span>
+  </button>
+</div>
+    <div class="modal-body">
+      <!-- Table Name Input -->
+      <div class="form-group">
+        <label for="importTableName">Table Name</label>
+        <input type="text" id="importTableName" required />
+      </div>
+
+      <!-- Import Format Selection -->
+      <div class="form-group">
+        <label for="importFormat">Import Format</label>
+        <select id="importFormat" name="importFormat">
+          <option value="paste">Paste Data</option>
+          <option value="csv">CSV File</option>
+          <option value="tsv">TSV File</option>
+         <!--   <option value="pdf">PDF File</option> -->
+          <option value="googlesheets">Google Sheets</option>
+         <!--   <option value="json">JSON File</option> -->
+        <!--   <option value="html">HTML Table</option>-->
+          <!--  <option value="sqlite">DB Browser for SQLite</option> -->
+        </select>
+      </div>
+
+      <!-- Paste Data Group -->
+      <div class="form-group" id="pasteGroup">
+        <label for="pasteData">Paste Data Here</label>
+        <textarea
+          id="pasteData"
+          rows="10"
+          style="width: 100%; margin-top: 8px"
+          placeholder="Paste your data here..."
+        ></textarea>
+      </div>
+
+      <!-- File Input Group -->
+      <div class="form-group" id="fileInputGroup" style="display: none">
+        <label for="importFile">Select File Or Drop One</label>
+        <input type="file" id="importFile" />
+      </div>
+
+      <!-- Google Sheets Group -->
+      <div id="googleSheetsGroup" class="form-group" style="display: none">
+        <label for="googleSheetsUrl">Google Sheets URL</label>
+        <input
+          type="text"
+          id="googleSheetsUrl"
+          class="form-input"
+          placeholder="Paste your Google Sheets URL here"
+        />
+        <div class="import-helper">
+          <p>To import from Google Sheets:</p>
+          <ol>
+            <li>Open your Google Sheet</li>
+            <li>Click "Share" in the top right</li>
+            <li>Set access to "Anyone with the link can view"</li>
+            <li>Copy the URL from your browser</li>
+            <li>Paste it here</li>
+          </ol>
+          <p class="helper-note">
+            OR use a published sheet URL (File → Share → Publish to web)
+          </p>
+        </div>
+      </div>
+
+      <!-- Import Options -->
+      <div class="form-group">
+        <label>
+          <input type="checkbox" id="hasHeaders" checked />
+          First line contains headers
+        </label>
+      </div>
+
+      <!-- Separator Selection -->
+      <div class="form-group" id="separatorGroup">
+        <label for="separator">Field Separator</label>
+        <select id="separator">
+          <option value="tab">Tab</option>
+          <option value=",">Comma</option>
+          <option value=";">Semicolon</option>
+          <option value="space">Space</option> <!-- Added option -->
+          <option value="custom">Custom</option> <!-- Added option -->
+        </select>
+      </div>
+
+      <!-- Custom Separator Input -->
+      <div class="form-group" id="customSeparatorGroup" style="display: none;">
+        <label for="customSeparator">Custom Separator</label>
+        <input type="text" id="customSeparator" maxlength="2" placeholder="Enter custom separator" />
+      </div>
+
+      <!-- Preview -->
+
+      <div class="form-group" id="previewGroup">
+        <label>Data Preview</label>
+        <div id="dataPreview" style="border: 1px solid #ccc; padding: 8px; max-height: 200px; overflow: auto;"></div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button id="cancelImportBtn" class="button">Cancel</button>
+      <button id="importBtn" class="button button-primary">Import</button>
+    </div>
+  </div>
+</div>
+
+
+     <div id="renameColumnCustomModal" class="modal">
+    <div class="modal-content">
+<div class="modal-header">
+  <h3>Rename Column</h3>
+  <button class="symphytum-close-btn" id="closeRenameColumnCustomModal">
+    <span class="symphytum-close-btn-circle"></span>
+    <span class="symphytum-close-btn-line left"></span>
+    <span class="symphytum-close-btn-line right"></span>
+  </button>
+</div>
+
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="renameColumnCustomInput">New Column Name:</label>
+                <input type="text" id="renameColumnCustomInput" class="form-input">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="cancelRenameColumnCustomBtn" class="button">Cancel</button>
+            <button id="saveRenameColumnCustomBtn" class="button button-primary">Save</button>
+        </div>
+    </div>
+</div>
+      <!-- Modal Backdrop -->
+      <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true"></div>
+
+ 
+      <!-- Loading Spinner -->
+      <div id="loadingSpinner" class="loading-spinner" aria-hidden="true">
+        <svg class="spinner" viewbox="0 0 50 50">
+          <circle
+            class="path"
+            cx="25"
+            cy="25"
+            r="20"
+            fill="none"
+            stroke-width="5"
+          ></circle>
+        </svg>
+      </div>
+
+      <!-- Matrix Background Container for Hacker Theme -->
+      <div
+        id="matrixBackground"
+        class="matrix-background"
+        style="display: none"
+      ></div>
+
+      <!-- RGB Theme Trail Container -->
+      <div id="rgbTrailContainer"></div>
+    </div>
+<script type="module" src="https://unpkg.com/@divriots/flying-santa/dist/index.js?module"></script>
+
+<button id="toggleSantaBtn" style="display: none;">Toggle Santa</button>
+
+    <script type="module" src="/js/modules/tableInteractions.js"></script>
+    <script type="module" src="/js/modules/contextMenu.js"></script>
+    <script type="module" src="/js/modules/toolbar.js"></script>
+    <script type="module" src="/js/modules/refresh.js"></script>
+
+    <script type="module" src="/js/modules/videoSupport.js"></script>
+    <script type="module" src="/js/modules/addTiktokSupport.js"></script>
+    <script type="module" src="/js/modules/youtubeSupport.js"></script>
+ 
+    
+    <script type="module" src="/js/modules/formColorPickers.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"
+      integrity="sha512-dfX5uYVXzyU8+KHqj8bjo7UkOdg18PaOtpa48djpNbZHwExddghZ+ZmzWT06R5v6NSk3ZUfsH6FNEDepLx9hPQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- Add this before your last script tag -->
+   <script type="module">
+  // Import necessary modules
+  import { TableManager } from "/js/modules/tableManager.js";
+  import { SettingsManager } from "/js/modules/settingsManager.js";
+
+  // Initialize TableManager and SettingsManager on window load
+  window.addEventListener("load", async () => {
+    try {
+      // Expose modules to the global window object
+      window.TableManager = TableManager;
+      window.SettingsManager = SettingsManager;
+
+      // Initialize the managers
+      await TableManager.initialize();
+      SettingsManager.init();
+
+      console.log("Application initialized successfully");
+    } catch (error) {
+      console.error("Failed to initialize application:", error);
+    }
+  });
+
+  // Execute DOM-related scripts once the DOM is fully loaded
+  document.addEventListener("DOMContentLoaded", () => {
+    // Dropdown Theme Selector
+    const dropdown = document.querySelector(".custom-dropdown");
+    if (dropdown) {
+      const selected = dropdown.querySelector(".selected");
+      const optionsContainer = dropdown.querySelector(".options");
+      const optionsList = dropdown.querySelectorAll(".option");
+      const hiddenInput = dropdown.querySelector("#themeInput");
+
+      if (selected && optionsContainer && optionsList && hiddenInput) {
+        // Toggle dropdown visibility
+        selected.addEventListener("click", () => {
+          dropdown.classList.toggle("open");
+        });
+
+        // Handle option selection
+        optionsList.forEach((option) => {
+          option.addEventListener("click", () => {
+            selected.textContent = option.textContent;
+            hiddenInput.value = option.getAttribute("data-value");
+            dropdown.classList.remove("open");
+
+            applyTheme(hiddenInput.value);
+          });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", (e) => {
+          if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove("open");
+          }
+        });
+
+        // Apply the initial theme
+        applyTheme(hiddenInput.value);
+      }
+    }
+
+    // Radio Button Switches
+    const emptyRadio = document.getElementById("createEmpty");
+    const importRadio = document.getElementById("createImport");
+    const labels = document.querySelectorAll(".switch-labels span");
+
+    if (labels.length && emptyRadio && importRadio) {
+      labels.forEach((label, index) => {
+        label.addEventListener("click", () => {
+          if (index === 0) {
+            emptyRadio.checked = true;
+          } else {
+            importRadio.checked = true;
+          }
+        });
+      });
+    }
+
+    // Toggle Switch for Delete Buttons Visibility
+    const toggleSwitch = document.getElementById("octoberToggleDelete");
+    if (toggleSwitch) {
+      toggleSwitch.checked = false; 
+      localStorage.setItem("deleteButtonsVisible", "false");
+    }
+
+    /**
+     * Applies the selected theme to the document body and manages related UI changes.
+     * @param {string} theme - The name of the theme to apply.
+     */
+    function applyTheme(theme) {
+      // Remove existing theme classes
+      document.body.classList.remove(
+        "theme-light",
+        "theme-dark",
+        "theme-blue",
+        "theme-hellokitty",
+        "theme-hacker",
+        "theme-rgb",
+        "theme-excel",
+        "theme-thanksgiving",
+        "theme-christmas",
+        "theme-easter",
+        "theme-paintblob",
+        "theme-dogecoin",
+        "theme-applepc",
+        "theme-windows98",
+        "theme-dos"
+      );
+
+      // Add the new theme class
+      document.body.classList.add(`theme-${theme}`);
+
+      const headerImage = document.getElementById("myUniqueButtonImage");
+
+      if (!headerImage) {
+        console.warn("Header image with ID 'myUniqueButtonImage' not found.");
+        return;
+      }
+
+      if (theme === "rgb") {
+        // Hide the header image
+        headerImage.classList.add("hidden");
+
+        // Create and display the filing cabinet if it doesn't exist
+        let filingCabinet = document.querySelector(".filing-cabinet");
+        if (!filingCabinet) {
+          filingCabinet = document.createElement("div");
+          filingCabinet.classList.add("filing-cabinet", "theme-rgb-filing-cabinet");
+
+          filingCabinet.innerHTML = `
+            <div class="cabinet-container">
+              <div class="cabinet">
+                <div class="drawer"></div>
+              </div>
+            </div>
+          `;
+
+          headerImage.parentNode.insertBefore(filingCabinet, headerImage.nextSibling);
+
+          // Fade in the filing cabinet
+          filingCabinet.style.opacity = 0;
+          setTimeout(() => {
+            filingCabinet.style.opacity = 1;
+          }, 50);
+        }
+
+        // Remove the header image source
+        headerImage.src = ""; 
+      } else {
+        // Remove the filing cabinet if it exists
+        const filingCabinet = document.querySelector(".filing-cabinet");
+        if (filingCabinet) {
+          filingCabinet.style.opacity = 0;
+          setTimeout(() => {
+            filingCabinet.remove();
+          }, 500); 
+        }
+
+        // Show the header image and set its source
+        headerImage.classList.remove("hidden");
+        headerImage.src = "https://i.imgur.com/41ykvVf.png"; 
+      }
+
+      console.log("Applied theme:", theme);
+
+      // Initialize or remove Christmas snowfall based on the theme
+      if (theme === "christmas") {
+        initChristmasSnowfall();
+      } else {
+        removeChristmasSnowfall();
+      }
+    }
+
+    /**
+     * Initializes the Christmas snowfall effect.
+     */
+    function initChristmasSnowfall() {
+      const SNOWFLAKE_COUNT = 50;
+      const SNOWFLAKE_CHARS = ['❄', '❅', '❆', '✻', '✼', '❋'];
+      const WIND_VARIATION = 50; 
+
+      // Create a container for snowflakes
+      const snowContainer = document.createElement('div');
+      snowContainer.className = 'snow-container';
+      snowContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 1000;
+        overflow: hidden;
+      `;
+
+      /**
+       * Creates a single snowflake element.
+       * @returns {HTMLElement} The snowflake element.
+       */
+      function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.textContent = SNOWFLAKE_CHARS[Math.floor(Math.random() * SNOWFLAKE_CHARS.length)];
+
+        const startLeft = Math.random() * 100;
+        const fallDuration = 5 + Math.random() * 10;
+        const windVariation = Math.random() * WIND_VARIATION - (WIND_VARIATION / 2);
+        const rotation = Math.random() * 360;
+        const size = 8 + Math.random() * 12;
+
+        snowflake.style.cssText = `
+          position: fixed;
+          color: white;
+          text-shadow: 0 0 3px rgba(255,255,255,0.3);
+          font-size: ${size}px;
+          left: ${startLeft}vw;
+          top: -20px;
+          will-change: transform;
+          animation: 
+            snowfall ${fallDuration}s linear infinite,
+            snowWiggle ${3 + Math.random() * 2}s ease-in-out infinite alternate;
+          transform: translateX(${windVariation}px) rotate(${rotation}deg);
+          opacity: ${0.3 + Math.random() * 0.7};
+        `;
+
+        // Recycle snowflake after animation ends
+        snowflake.addEventListener('animationend', () => {
+          snowflake.remove();
+          createSnowflake(); 
+        });
+
+        return snowflake;
+      }
+
+      /**
+       * Initializes the snowfall by creating multiple snowflakes.
+       */
+      function initializeSnowfall() {
+        if (!document.body.contains(snowContainer)) {
+          document.body.appendChild(snowContainer);
+        }
+
+        for (let i = 0; i < SNOWFLAKE_COUNT; i++) {
+          const snowflake = createSnowflake();
+          snowflake.style.top = `${Math.random() * 100}vh`; 
+          snowContainer.appendChild(snowflake);
+        }
+      }
+
+      // Define keyframe animations for snowfall and wiggle
+      const snowStyle = document.createElement('style');
+      snowStyle.textContent = `
+        @keyframes snowfall {
+          0% {
+            transform: translateY(-20px) translateX(var(--wind)) rotate(var(--rotation));
+          }
+          100% {
+            transform: translateY(105vh) translateX(var(--wind)) rotate(var(--rotation));
+          }
+        }
+
+        @keyframes snowWiggle {
+          0% {
+            transform: translateX(-5px);
+          }
+          100% {
+            transform: translateX(5px);
+          }
+        }
+      `;
+      document.head.appendChild(snowStyle);
+
+      // Append snowflakes to the container
+      initializeSnowfall();
+
+      // Observe changes to the body class to toggle snowfall
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.attributeName === 'class') {
+            if (document.body.classList.contains('theme-christmas')) {
+              initializeSnowfall();
+            } else {
+              removeChristmasSnowfall();
+            }
+          }
+        });
+      });
+
+      observer.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class']
+      });
+
+      /**
+       * Removes the Christmas snowfall effect.
+       */
+      function removeChristmasSnowfall() {
+        if (document.body.contains(snowContainer)) {
+          snowContainer.remove();
+        }
+        if (document.head.contains(snowStyle)) {
+          snowStyle.remove();
+        }
+      }
+
+      // Cleanup function in case it's needed elsewhere
+      return () => {
+        observer.disconnect();
+        removeChristmasSnowfall();
+      };
+    }
+
+    /**
+     * Removes the Christmas snowfall effect.
+     */
+    function removeChristmasSnowfall() {
+      const snowContainer = document.querySelector('.snow-container');
+      const snowStyle = document.querySelector('style');
+
+      if (snowContainer) {
+        snowContainer.remove();
+      }
+      if (snowStyle && snowStyle.textContent.includes('@keyframes snowfall')) {
+        snowStyle.remove();
+      }
+    }
+  });
+    /**
+   * Adds Flying Santa to the page.
+   */
+  function addFlyingSanta() {
+    if (!document.querySelector("flying-santa")) {
+      const santaScript = document.createElement("script");
+      santaScript.type = "module";
+      santaScript.src = "https://unpkg.com/@divriots/flying-santa/dist/index.js?module";
+      santaScript.id = "santaScript";
+      
+      const flyingSanta = document.createElement("flying-santa");
+      flyingSanta.id = "flyingSanta";
+
+      document.body.appendChild(santaScript);
+      document.body.appendChild(flyingSanta);
+    }
+  }
+
+  /**
+   * Removes Flying Santa from the page.
+   */
+  function removeFlyingSanta() {
+    const santaScript = document.getElementById("santaScript");
+    const flyingSanta = document.getElementById("flyingSanta");
+
+    if (santaScript) santaScript.remove();
+    if (flyingSanta) flyingSanta.remove();
+  }
+
+  /**
+   * Applies the selected theme and controls Flying Santa visibility.
+   * @param {string} theme - The theme name.
+   */
+  function applyTheme(theme) {
+    document.body.className = `theme-${theme}`;
+
+    if (theme === "christmas") {
+      addFlyingSanta();
+    } else {
+      removeFlyingSanta();
+    }
+  }
+
+  // Theme selection event listener
+  const themeSelect = document.getElementById("themeSelect");
+  themeSelect.addEventListener("change", (event) => {
+    applyTheme(event.target.value);
+  });
+
+  // Apply the initial theme on page load
+  applyTheme(themeSelect.value);
+
+</script>
+        <footer class="app-footer" role="contentinfo">
+            <a href="https://my-online-database.com" aria-label="Home">Home</a>
+          <a href="/how-2-use.html" aria-label="Instructions">Hints</a>
+            <a href="/about.html" aria-label="About Us">About Us</a>
+            <a href="/documentation.html" aria-label="Documentation">Documentation</a>
+            <a href="/advanced.html" aria-label="Advanced Topics">Advanced Topics</a>
+            <a href="/schema-explorer.html" aria-label="Schema Explorer">Schema Explorer</a>
+        </footer>
+  </body>
+</html>
